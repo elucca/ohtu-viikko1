@@ -19,6 +19,74 @@ public class VarastoTest {
     public void setUp() {
         varasto = new Varasto(10);
     }
+    
+    @Test
+    public void toStringNayttaaOikeanTilavuudenJaSaldon() {
+        varasto = new Varasto(10, 4);
+        assertEquals("saldo = 4.0, vielä tilaa 6.0", varasto.toString());
+    }
+
+    @Test
+    public void virheellistaLisaystaEiTehda() {
+        varasto.lisaaVarastoon(-2);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void virheellistaOttamistaEiTehda() {
+        varasto = new Varasto(10, 4);
+        varasto.otaVarastosta(-2);
+        assertEquals(4, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void saldoMeneNollaanKunYritetaanOttaaLiikaa() {
+        varasto = new Varasto(10, 4);
+        varasto.otaVarastosta(5);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void varastostaOtetaanKaikkiKunYritetaanOttaaLiikaa() {
+        varasto = new Varasto(10, 4);
+        assertEquals(4, varasto.otaVarastosta(5), vertailuTarkkuus);
+    }
+
+    @Test
+    public void varastoTayttyyKunLisataanLiikaa() {
+        varasto.lisaaVarastoon(11);
+        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void virheellinenTilavuusNollataan() {
+        varasto = new Varasto(-2);
+        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void virheellinenTilavuusNollataanAlkusaldollisessaVarastossa() {
+        varasto = new Varasto(-2, 0);
+        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void virheellinenAlkusaldoNollataan() {
+        varasto = new Varasto(2, -1);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void varastoTayttyyKunAlkusaldoYlittaaTilavuuden() {
+        varasto = new Varasto(2, 3);
+        assertEquals(2, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void konstruktoriLuoAlkusaldollisenVaraston() {
+        varasto = new Varasto(11, 10);
+        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
+    }
 
     @Test
     public void konstruktoriLuoTyhjanVaraston() {
