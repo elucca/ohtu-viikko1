@@ -40,7 +40,7 @@ public class VarastoTest {
     }
 
     @Test
-    public void saldoMeneNollaanKunYritetaanOttaaLiikaa() {
+    public void saldoMeneNollataanKunYritetaanOttaaLiikaa() {
         varasto = new Varasto(10, 4);
         varasto.otaVarastosta(5);
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
