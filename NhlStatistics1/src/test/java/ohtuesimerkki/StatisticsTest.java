@@ -59,5 +59,17 @@ public class StatisticsTest {
         assertEquals(found.get(0).getName(), "Gretzky");
         assertEquals(found.get(1).getName(), "Lemieux");
     }
+    
+    @Test
+    public void emptyListReturnedForZeroTopScorers() {
+        assertEquals(0, stats.topScorers(0).size());
+    }
+    
+    @Test
+    public void correctNumberOfTopScorersFound() {
+        assertEquals(1, stats.topScorers(1).size());
+        assertEquals(2, stats.topScorers(2).size());
+        assertEquals(3, stats.topScorers(3).size());
+    }
 
 }
