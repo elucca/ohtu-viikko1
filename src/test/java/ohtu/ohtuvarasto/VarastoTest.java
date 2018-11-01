@@ -23,7 +23,7 @@ public class VarastoTest {
     @Test
     public void toStringNayttaaOikeanTilavuudenJaSaldon() {
         varasto = new Varasto(10, 4);
-        assertEquals("saldo = 4.0, vielä tilaa 6.0", varasto.toString());
+        assertEquals("saldo = 4.0, vielä tilaa 6.0 asdasd", varasto.toString());
     }
 
     @Test
