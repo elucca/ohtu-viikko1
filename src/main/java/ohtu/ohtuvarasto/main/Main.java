@@ -3,7 +3,9 @@ package ohtu.ohtuvarasto;
 public class Main {
 
     public static void main(String[] args) {
+        checkstylenRikkoja();
 
+        /* Alkuperäinen koodi
         Varasto mehua = new Varasto(100.0);
         Varasto olutta = new Varasto(100.0, 20.2);
 
@@ -54,5 +56,23 @@ public class Main {
         saatiin = mehua.otaVarastosta(-32.9);
         System.out.println("saatiin " + saatiin);
         System.out.println("Mehuvarasto: " + mehua);
+        */
+    }
+
+    private static void checkstylenRikkoja() {
+        for (int i = 0; i < 1; i++)
+        {
+            for (int j = 0; i < j; j++) {
+                int taikaa = 40+294;
+            }
+        }
+
+        if (true) {
+            if (true) {
+                if (true) {
+                    boolean truth = true;
+                }
+            }
+        }
     }
 }
