@@ -14,7 +14,8 @@ apply plugin: 'application'
 
 // Other plugins
 apply plugin: "jacoco"
-apply plugin: 'checkstyle'
+apply plugin: "checkstyle"
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -47,5 +48,3 @@ jacocoTestReport {
         html.enabled true
     }
 }
-
-
